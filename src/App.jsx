@@ -84,10 +84,7 @@ function App() {
       <footer className="footer">
         <div className="container footer-container">
           <div className="footer-left">
-            <span className="footer-logo">RAMKRSHARMA<span className="logo-text-accent">.ME</span></span>
-            <p className="footer-p">
-              Designed & built by Ram Sharma. Merge of software engineering and artificial intelligence.
-            </p>
+            <span className="footer-logo">RAM SHARMA<span className="logo-text-accent">.APP</span></span>
           </div>
 
           <div className="footer-right">

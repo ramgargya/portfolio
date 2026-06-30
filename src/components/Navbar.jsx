@@ -81,7 +81,7 @@ export function Navbar() {
       <div className="navbar-container">
         <div className="navbar-logo" onClick={() => handleLinkClick('home')}>
           <Code2 className="logo-icon" />
-          <span className="logo-text">RAMKRSHARMA<span className="logo-text-accent">.ME</span></span>
+          <span className="logo-text">RAM SHARMA<span className="logo-text-accent">.APP</span></span>
         </div>
 
         {/* Desktop Navigation */}
