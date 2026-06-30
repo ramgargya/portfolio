@@ -1,0 +1,257 @@
+/* Global Navbar container holds the floating logo and menu */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  pointer-events: none; /* Make clicks pass through the general bar area */
+  transition: var(--transition-smooth);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  pointer-events: auto; /* Enable clicks back for child elements */
+}
+
+/* Floating Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  pointer-events: auto;
+  background: rgba(10, 13, 20, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo-icon {
+  color: var(--accent-cyan);
+  transition: var(--transition-smooth);
+}
+
+.navbar-logo:hover .logo-icon {
+  transform: rotate(360deg);
+  color: var(--accent-indigo);
+}
+
+.logo-text-accent {
+  color: var(--accent-cyan);
+}
+
+/* Floating Right Side Vertical Navigation (Desktop) */
+.navbar-links {
+  position: fixed;
+  right: 2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.25rem;
+  list-style: none;
+  background: rgba(10, 13, 20, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+  z-index: 1000;
+  transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+}
+
+/* Collapse / Expand States for Dock Width */
+.navbar-links.collapsed {
+  padding: 2.25rem 0.75rem; /* Narrow padding when collapsed */
+  background: rgba(10, 13, 20, 0.45);
+}
+
+.navbar-links.expanded {
+  padding: 2.25rem 1.5rem; /* Wider padding to fit text labels */
+  background: rgba(10, 13, 20, 0.75);
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  transition: var(--transition-smooth);
+}
+
+/* Nav Link Text Animation */
+.nav-btn-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: right;
+  transition: opacity 0.35s ease, max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1), margin-right 0.35s ease, visibility 0.4s;
+}
+
+.navbar-links.collapsed .nav-btn-text {
+  opacity: 0;
+  max-width: 0;
+  margin-right: 0;
+  visibility: hidden;
+}
+
+.navbar-links.expanded .nav-btn-text {
+  opacity: 1;
+  max-width: 150px; /* Expands to fit text comfortably */
+  margin-right: 0.75rem; /* Space before the dot indicator */
+  visibility: visible;
+}
+
+/* Right Dot Indicator */
+.nav-btn::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transition: var(--transition-smooth);
+  flex-shrink: 0;
+}
+
+/* Hover and Active states */
+.nav-btn:hover {
+  color: var(--text-primary);
+}
+
+.nav-btn:hover::after {
+  background: var(--accent-cyan);
+  box-shadow: 0 0 10px var(--accent-cyan);
+  transform: scale(1.4);
+}
+
+.nav-btn.active {
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+.nav-btn.active::after {
+  background: var(--accent-cyan);
+  box-shadow: 0 0 12px var(--accent-cyan);
+  transform: scale(1.6);
+}
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+  display: none;
+  background: rgba(10, 13, 20, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+  pointer-events: auto;
+}
+
+/* Mobile Drawer Overlay styles */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 999;
+  pointer-events: auto;
+}
+
+.mobile-menu-overlay.open {
+  transform: translateX(-100%);
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  width: 100%;
+}
+
+.mobile-nav-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  padding: 0.5rem 1rem;
+}
+
+.mobile-nav-btn:hover,
+.mobile-nav-btn.active {
+  color: var(--accent-cyan);
+  transform: scale(1.05);
+}
+
+/* Media Queries for Tablet and Mobile devices */
+@media (max-width: 1024px) {
+  /* On tablets and mobile, restore standard horizontal top header */
+  .navbar {
+    height: 80px;
+    background: rgba(10, 13, 20, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    pointer-events: auto;
+  }
+  
+  .navbar-logo {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    padding: 0;
+  }
+
+  .navbar-links {
+    display: none; /* Hide the vertical dock */
+  }
+
+  .mobile-menu-toggle {
+    display: flex; /* Show toggle */
+  }
+}
