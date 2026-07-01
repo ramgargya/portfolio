@@ -8,7 +8,7 @@ export function Skills() {
 
   const featuredCategories = [
     {
-      title: 'AI & Generative AI',
+      title: 'Generative AI',
       icon: <Sparkles className="skill-cat-icon ai-sparkle" />,
       highlight: true,
       skills: [
