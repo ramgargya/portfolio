@@ -43,7 +43,6 @@ export function Projects() {
     <section id="projects" className="projects-section" ref={secRef}>
       <div className={`container reveal ${isVisible ? 'active' : ''}`}>
         <div className="center-title">
-          <span className="section-subtitle">My Creative Work</span>
           <h2 className="section-title">Featured Projects</h2>
         </div>
 

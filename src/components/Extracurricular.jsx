@@ -33,7 +33,6 @@ export function Extracurricular() {
     <section id="extracurricular" className="extracurricular-section" ref={secRef}>
       <div className={`container reveal ${isVisible ? 'active' : ''}`}>
         <div className="center-title">
-          <span className="section-subtitle">Beyond Engineering</span>
           <h2 className="section-title">Extracurricular Activities</h2>
         </div>
 

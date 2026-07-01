@@ -33,12 +33,12 @@
   font-size: 1.25rem;
   letter-spacing: -0.02em;
   pointer-events: auto;
-  background: rgba(10, 13, 20, 0.4);
+  background: var(--bg-navbar);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   padding: 0.6rem 1.2rem;
   border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
 }
 
 .logo-icon {
@@ -66,7 +66,7 @@
   align-items: flex-end;
   gap: 1.25rem;
   list-style: none;
-  background: rgba(10, 13, 20, 0.65);
+  background: var(--bg-logo);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-color);
@@ -80,12 +80,12 @@
 /* Collapse / Expand States for Dock Width */
 .navbar-links.collapsed {
   padding: 2.25rem 0.75rem; /* Narrow padding when collapsed */
-  background: rgba(10, 13, 20, 0.45);
+  background: var(--bg-menu);
 }
 
 .navbar-links.expanded {
   padding: 2.25rem 1.5rem; /* Wider padding to fit text labels */
-  background: rgba(10, 13, 20, 0.75);
+  background: var(--bg-logo);
 }
 
 .nav-btn {
@@ -166,7 +166,7 @@
 /* Mobile Menu Toggle Button */
 .mobile-menu-toggle {
   display: none;
-  background: rgba(10, 13, 20, 0.6);
+  background: var(--bg-hamburger);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border-color);
@@ -232,7 +232,7 @@
   /* On tablets and mobile, restore standard horizontal top header */
   .navbar {
     height: 80px;
-    background: rgba(10, 13, 20, 0.7);
+    background: var(--bg-mobile-header);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);

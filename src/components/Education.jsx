@@ -43,7 +43,6 @@ export function Education() {
     <section id="education" className="education-section" ref={secRef}>
       <div className={`container reveal ${isVisible ? 'active' : ''}`}>
         <div className="center-title">
-          <span className="section-subtitle">Academic Profile</span>
           <h2 className="section-title">Education History</h2>
         </div>
 

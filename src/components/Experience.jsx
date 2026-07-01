@@ -49,7 +49,6 @@ export function Experience() {
     <section id="experience" className="experience-section" ref={secRef}>
       <div className={`container reveal ${isVisible ? 'active' : ''}`}>
         <div className="center-title">
-          <span className="section-subtitle">Career Path</span>
           <h2 className="section-title">Work Experience</h2>
         </div>
 

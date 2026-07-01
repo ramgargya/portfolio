@@ -80,7 +80,6 @@ export function Skills() {
     <section id="skills" className="skills-section" ref={secRef}>
       <div className={`container reveal ${isVisible ? 'active' : ''}`}>
         <div className="center-title">
-          <span className="section-subtitle">Abilities & Expertise</span>
           <h2 className="section-title">Technical Skills</h2>
         </div>
 

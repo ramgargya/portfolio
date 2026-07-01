@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, HelpCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import './Contact.css';
 
 export function Contact() {
   const [secRef, isVisible] = useIntersectionObserver({ triggerOnce: true });
-  
+
   // FORM STATES
   const [formData, setFormData] = useState({
     name: '',
@@ -18,10 +18,6 @@ export function Contact() {
     message: ''
   });
 
-  // WEB3FORMS ACCESS KEY
-  // Fallbacks to your access key, supports VITE_WEB3FORMS_KEY environment variable.
-  const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || 'bec17d6b-ef65-4fbf-8ca5-c6896e857140';
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -29,7 +25,7 @@ export function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Basic Validation
     if (!formData.name || !formData.email || !formData.message) {
       setStatus({
@@ -97,7 +93,6 @@ export function Contact() {
     <section id="contact" className="contact-section" ref={secRef}>
       <div className={`container reveal ${isVisible ? 'active' : ''}`}>
         <div className="center-title">
-          <span className="section-subtitle">Get In Touch</span>
           <h2 className="section-title">Contact Me</h2>
         </div>
 
@@ -145,21 +140,7 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Guide for user */}
-            <div className="setup-guide-box glass-card">
-              <div className="setup-guide-header">
-                <HelpCircle size={16} className="guide-icon" />
-                <span>Activating the Contact Form</span>
-              </div>
-              <p className="guide-p">
-                To receive emails at <strong>ramkrsharm2005@gmail.com</strong>:
-              </p>
-              <ol className="guide-list">
-                <li>Go to <a href="https://web3forms.com" target="_blank" rel="noopener noreferrer">web3forms.com</a>.</li>
-                <li>Enter your email to receive a free Access Key.</li>
-                <li>Paste it in [Contact.jsx](file:///c:/Users/ramkr/OneDrive/Desktop/Portfolio/src/components/Contact.jsx#L22).</li>
-              </ol>
-            </div>
+
           </div>
 
           {/* Contact Form */}

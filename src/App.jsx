@@ -9,6 +9,7 @@ import { Projects } from './components/Projects';
 import { Certifications } from './components/Certifications';
 import { Extracurricular } from './components/Extracurricular';
 import { Contact } from './components/Contact';
+import { ThemeToggle } from './components/ThemeToggle';
 import { ArrowUp, Mail } from 'lucide-react';
 import './App.css';
 
@@ -66,6 +67,9 @@ function App() {
 
       {/* Main Navigation */}
       <Navbar />
+
+      {/* Theme Toggle Button */}
+      <ThemeToggle />
 
       {/* Main Contents */}
       <main>

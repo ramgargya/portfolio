@@ -26,7 +26,6 @@ export function Hero() {
     <section id="home" className="hero-section" ref={heroRef}>
       <div className={`container hero-container reveal ${isVisible ? 'active' : ''}`}>
         <div className="hero-content">
-          <span className="section-subtitle hero-subtitle">Welcome to my space</span>
           <h1 className="hero-title">
             Hi, I'm <span className="gradient-text">Ram Sharma</span>
           </h1>
@@ -34,7 +33,7 @@ export function Hero() {
             Backend Developer & AI Developer
           </h2>
           <p className="hero-description">
-            I specialize in building scalable backend systems using <strong>Spring Boot</strong> and integrating cutting-edge <strong>Generative AI / LLM</strong> capabilities to create modern web applications.
+            Building scalable backend systems using <strong>Spring Boot</strong> and integrating cutting-edge <strong>Generative AI / LLM</strong> capabilities to create modern web applications.
           </p>
 
           <div className="hero-actions">

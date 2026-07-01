@@ -1,0 +1,194 @@
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(17, 21, 34, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.08);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 15px var(--accent-cyan-glow);
+}
+
+.theme-toggle-icon-wrapper {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-icon {
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+}
+
+.theme-toggle-btn:hover .theme-icon {
+  transform: rotate(20deg);
+}
+
+/* Mobile responsive alignment */
+@media (max-width: 1024px) {
+  .theme-toggle-btn {
+    top: 0.9rem;
+    right: 5.2rem;
+  }
+}
+
+/* Theme Transition Overlay styling */
+.theme-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Dotted Line of Projection SVG Path */
+.projection-svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  animation: fade-projection-path 1.6s ease-in-out forwards;
+}
+
+.projection-path {
+  stroke: var(--accent-cyan);
+  filter: drop-shadow(0 0 4px var(--accent-cyan-glow));
+}
+
+@keyframes fade-projection-path {
+  0% { opacity: 0; }
+  15% { opacity: 0.6; }
+  85% { opacity: 0.6; }
+  100% { opacity: 0; }
+}
+
+/* Flying celestial object styling */
+.flying-celestial {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  margin-top: -40px; /* Center body vertically on path */
+  margin-left: -40px; /* Center body horizontally on path */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10002;
+}
+
+.flying-celestial .celestial-svg {
+  color: #ffffff;
+}
+
+.theme-transition-overlay.light .flying-celestial {
+  background: radial-gradient(circle, #ffffff 30%, #f59e0b 70%, #d97706 100%);
+  box-shadow: 0 0 40px #f59e0b, 0 0 80px #f59e0b, 0 0 120px rgba(245, 158, 11, 0.4);
+  animation: celestial-arc-light 1.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.theme-transition-overlay.dark .flying-celestial {
+  background: radial-gradient(circle, #ffffff 20%, #818cf8 60%, #4f46e5 100%);
+  box-shadow: 0 0 40px #6366f1, 0 0 80px #4f46e5, 0 0 120px rgba(99, 102, 241, 0.4);
+  animation: celestial-arc-dark 1.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Slide Curtain swiping from left to right */
+.swipe-reveal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10001;
+  pointer-events: none;
+  transform: translateX(-100%);
+}
+
+.theme-transition-overlay.light .swipe-reveal {
+  background-color: #faf9f6;
+  animation: swipe-left-to-right 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.theme-transition-overlay.dark .swipe-reveal {
+  background-color: #0a0d14;
+  animation: swipe-left-to-right 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Celestial Arc Keyframe Animations (Aligned with d="M 0,90 Q 50,15 100,90" SVG coordinates) */
+@keyframes celestial-arc-light {
+  0% {
+    transform: translate(0vw, 90vh) scale(0.6) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(50vw, 15vh) scale(2.2) rotate(180deg);
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100vw, 90vh) scale(0.6) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes celestial-arc-dark {
+  0% {
+    transform: translate(0vw, 90vh) scale(0.6) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(50vw, 15vh) scale(2.2) rotate(-180deg);
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100vw, 90vh) scale(0.6) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+/* Swipe Left to Right curtain keyframes */
+@keyframes swipe-left-to-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

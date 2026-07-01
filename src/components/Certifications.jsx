@@ -41,7 +41,6 @@ export function Certifications() {
     <section id="certifications" className="certifications-section" ref={secRef}>
       <div className={`container reveal ${isVisible ? 'active' : ''}`}>
         <div className="center-title">
-          <span className="section-subtitle">Verified Credentials</span>
           <h2 className="section-title">Certifications</h2>
         </div>
 
